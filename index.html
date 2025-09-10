@@ -40,6 +40,40 @@
             scroll-behavior: smooth;
         }
 
+        /* Language Toggle Button */
+        .language-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(45deg, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 1.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .language-toggle {
+                bottom: 15px;
+                right: 15px;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
         /* Enhanced Smoke Effect */
         .smoke-container {
             position: fixed;
@@ -833,16 +867,22 @@
         <div class="progress-bar" id="progressBar"></div>
     </div>
 
+    <!-- Language Toggle Button -->
+    <button class="language-toggle" id="languageToggle">
+        <i class="fas fa-language"></i>
+        <span id="languageText">کوردی</span>
+    </button>
+
     <header>
         <div class="header-content">
-            <div class="logo"><span>🌐</span> Deary Sleman</div>
+            <div class="logo"><span>🌐</span> <span class="translate" data-key="name">Deary Sleman</span></div>
             <nav id="mainNav">
-                <a href="#home" class="active">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#employment">Experience</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" class="active translate" data-key="home">Home</a>
+                <a href="#about" class="translate" data-key="about">About</a>
+                <a href="#skills" class="translate" data-key="skills">Skills</a>
+                <a href="#employment" class="translate" data-key="experience">Experience</a>
+                <a href="#projects" class="translate" data-key="projects">Projects</a>
+                <a href="#contact" class="translate" data-key="contact">Contact</a>
             </nav>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -853,34 +893,34 @@
     <div class="container">
         <section class="hero" id="home">
             <div class="hero-content">
-                <h1>Deary Sleman</h1>
-                <p class="subtitle">Full Stack Web Developer</p>
-                <p class="description">Skilled in front-end and back-end development, I create fast, secure, and user-friendly web experiences. My goal is to craft clean, efficient code and intuitive designs that bring projects to life.</p>
+                <h1 class="translate" data-key="name">Deary Sleman</h1>
+                <p class="subtitle translate" data-key="jobTitle">Full Stack Web Developer</p>
+                <p class="description translate" data-key="heroDesc">Skilled in front-end and back-end development, I create fast, secure, and user-friendly web experiences. My goal is to craft clean, efficient code and intuitive designs that bring projects to life.</p>
                 <div class="cta-buttons">
                     <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-code"></i> View My Work
+                        <i class="fas fa-code"></i> <span class="translate" data-key="viewWork">View My Work</span>
                     </a>
                     <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-paper-plane"></i> Let's Connect
+                        <i class="fas fa-paper-plane"></i> <span class="translate" data-key="letsConnect">Let's Connect</span>
                     </a>
                 </div>
             </div>
         </section>
 
         <section class="section fade-in" id="about">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title translate" data-key="aboutMe">About Me</h2>
             <div class="about-content">
                 <div class="about-image">
                     <img src="ID_picture.jpg" alt="Deary Sleman" >
                 </div>
                 <div class="about-text">
-                    <p>Motivated and detail-oriented professional with a strong work ethic and a passion for continuous learning. Known for being reliable, adaptable, and able to work effectively both independently and within a team. Brings excellent communication skills, problem-solving abilities, and a commitment to delivering high-quality results. Seeking an opportunity to contribute to a dynamic organization while growing professionally.</p>
+                    <p class="translate" data-key="aboutDesc">Motivated and detail-oriented professional with a strong work ethic and a passion for continuous learning. Known for being reliable, adaptable, and able to work effectively both independently and within a team. Brings excellent communication skills, problem-solving abilities, and a commitment to delivering high-quality results. Seeking an opportunity to contribute to a dynamic organization while growing professionally.</p>
                     <div class="cta-buttons" style="justify-content: flex-start; margin-top: 2rem;">
                         <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-envelope"></i> Hire Me
+                            <i class="fas fa-envelope"></i> <span class="translate" data-key="hireMe">Hire Me</span>
                         </a>
                         <a href="cv..jpg" class="btn btn-secondary">
-                            <i class="fas fa-download"></i> Download CV
+                            <i class="fas fa-download"></i> <span class="translate" data-key="downloadCV">Download CV</span>
                         </a>
                     </div>
                 </div>
@@ -888,35 +928,35 @@
         </section>
 
         <section class="section fade-in" id="skills">
-            <h2 class="section-title">Technical Expertise</h2>
+            <h2 class="section-title translate" data-key="technicalExpertise">Technical Expertise</h2>
             <div class="skills-grid">
                 <div class="skill-category">
                     <i class="fas fa-code skill-icon"></i>
-                    <h3>Frontend Development</h3>
+                    <h3 class="translate" data-key="frontendDev">Frontend Development</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Crafting responsive, modern, and user-friendly interfaces using the latest web technologies.</span>
+                        <span class="skill-tag translate" data-key="frontendDesc">Crafting responsive, modern, and user-friendly interfaces using the latest web technologies.</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <i class="fas fa-server skill-icon"></i>
-                    <h3>Backend Development</h3>
+                    <h3 class="translate" data-key="backendDev">Backend Development</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Powering website with strong architecture, optimized performance, and seamless data management.</span>
+                        <span class="skill-tag translate" data-key="backendDesc">Powering website with strong architecture, optimized performance, and seamless data management.</span>
                     </div>
                 </div>
                 <div class="skill-category">
                     <i class="fas fa-database skill-icon"></i>
-                    <h3>Database & Storage</h3>
+                    <h3 class="translate" data-key="database">Database & Storage</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Organizing data into powerful systems that keep applications fast, secure, and future-ready.</span>
+                        <span class="skill-tag translate" data-key="databaseDesc">Organizing data into powerful systems that keep applications fast, secure, and future-ready.</span>
                        
                     </div>
                 </div>
                 <div class="skill-category">
                     <i class="fas fa-tasks skill-icon"></i>
-                    <h3>Report & Presentation Expert</h3>
+                    <h3 class="translate" data-key="reportExpert">Report & Presentation Expert</h3>
                     <div class="skill-list">
-                        <span class="skill-tag">Skilled in writing academic, technical, and business reports as well as designing engaging presentations that effectively communicate ideas.</span>
+                        <span class="skill-tag translate" data-key="reportDesc">Skilled in writing academic, technical, and business reports as well as designing engaging presentations that effectively communicate ideas.</span>
                       
                     </div>
                 </div>
@@ -924,17 +964,17 @@
         </section>
 
         <section class="section fade-in" id="employment">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-title translate" data-key="professionalExperience">Professional Experience</h2>
             <div class="employment-grid">
                 <div class="employment-card">
                     <div class="employment-icon">
                         <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Internship</h3>
+                    <h3 class="translate" data-key="internship">Internship</h3>
                     <div class="employment-details">
                         <p class="company-name">Raparin Technical and Vocational Institute</p>
                         <span class="employment-period">2025</span>
-                        <p class="employment-description">
+                        <p class="employment-description translate" data-key="internshipDesc">
                             • Website Development<br>
                             • Network & Router Maintenance<br>
                             • Student and Staff Technical Support<br>
@@ -947,11 +987,11 @@
                     <div class="employment-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3>Full Stack Web Developer</h3>
+                    <h3 class="translate" data-key="fullStack">Full Stack Web Developer</h3>
                     <div class="employment-details">
-                        <p class="company-name">Freelance</p>
+                        <p class="company-name translate" data-key="freelance">Freelance</p>
                         <span class="employment-period">2025 - Present</span>
-                        <p class="employment-description">
+                        <p class="employment-description translate" data-key="freelanceDesc">
                             Providing web development and digital solutions to clients on a project basis, delivering high-quality, efficient, and customized results. Skilled in managing end-to-end projects independently, ensuring timely delivery and client satisfaction.
                         </p>
                     </div>
@@ -960,11 +1000,11 @@
                     <div class="employment-icon">
                         <i class="fas fa-print"></i>
                     </div>
-                    <h3>Digital Content Specialist</h3>
+                    <h3 class="translate" data-key="digitalContent">Digital Content Specialist</h3>
                     <div class="employment-details">
                         <p class="company-name">Qaradaxi Printing House</p>
                         <span class="employment-period">2025 - Present</span>
-                        <p class="employment-description">
+                        <p class="employment-description translate" data-key="digitalContentDesc">
                             • Report & Research Writing<br>
                             • Presentation Design<br>
                             • Lecture Printing<br>
@@ -977,24 +1017,24 @@
         </section>
 
         <section class="section fade-in" id="projects">
-            <h2 class="section-title">Featured Projects</h2>
+            <h2 class="section-title translate" data-key="featuredProjects">Featured Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-image">
                         <img src="netherton.png" alt="Netherton Shopping Store">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Netherton Shopping Store</h3>
-                        <p class="project-description">Developed a full-featured  platform tailored for Netherton Shopping Store, focusing on usability, performance, and secure management.</p>
+                        <h3 class="project-title translate" data-key="nethertonTitle">Netherton Shopping Store</h3>
+                        <p class="project-description translate" data-key="nethertonDesc">Developed a full-featured  platform tailored for Netherton Shopping Store, focusing on usability, performance, and secure management.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Responsive</span>
-                            <span class="tech-tag">Secure</span>
-                            <span class="tech-tag">Hidden Admin Panel</span>
+                            <span class="tech-tag translate" data-key="responsive">Responsive</span>
+                            <span class="tech-tag translate" data-key="secure">Secure</span>
+                            <span class="tech-tag translate" data-key="adminPanel">Hidden Admin Panel</span>
                             
                         </div>
                         <div class="project-links">
                             <a href="https://netherton-shopping.store/" class="project-link" target="_blank" style="color: white;">
-                                <i class="fas fa-external-link-alt"></i> Visit Website
+                                <i class="fas fa-external-link-alt"></i> <span class="translate" data-key="visitWebsite">Visit Website</span>
                             </a>
                             <!-- <a href="#" class="project-link">
                                 <i class="fab fa-github"></i> Source Code
@@ -1008,17 +1048,17 @@
                         <i class="fas fa-graduation-cap" style="font-size: 4rem; color: white;"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Educational Platform</h3>
-                        <p class="project-description">Developed a web platform for collecting feedback and conducting online quizzes for students and teachers. Designed to function like Google Forms, it allows efficient data collection and real-time responses. Currently, the project is 70% complete and restricted for institute members only, ensuring privacy and exclusive access.</p>
+                        <h3 class="project-title translate" data-key="eduPlatformTitle">Educational Platform</h3>
+                        <p class="project-description translate" data-key="eduPlatformDesc">Developed a web platform for collecting feedback and conducting online quizzes for students and teachers. Designed to function like Google Forms, it allows efficient data collection and real-time responses. Currently, the project is 70% complete and restricted for institute members only, ensuring privacy and exclusive access.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Education</span>
-                            <span class="tech-tag">Forms</span>
-                            <span class="tech-tag">Real-time</span>
-                            <span class="tech-tag">Secure</span>
+                            <span class="tech-tag translate" data-key="education">Education</span>
+                            <span class="tech-tag translate" data-key="forms">Forms</span>
+                            <span class="tech-tag translate" data-key="realTime">Real-time</span>
+                            <span class="tech-tag translate" data-key="secure">Secure</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" style="color: white;">
-                                <i class="fas fa-lock"></i> Private Project
+                                <i class="fas fa-lock"></i> <span class="translate" data-key="privateProject">Private Project</span>
                             </a>
                         </div>
                     </div>
@@ -1029,40 +1069,40 @@
                         <i class="fas fa-certificate" style="font-size: 4rem; color: white;"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Certificate Generator</h3>
-                        <p class="project-description">Web application that automatically generates certificates for both creators and attendees, providing dynamic certificates tailored to institute needs.</p>
+                        <h3 class="project-title translate" data-key="certificateTitle">Certificate Generator</h3>
+                        <p class="project-description translate" data-key="certificateDesc">Web application that automatically generates certificates for both creators and attendees, providing dynamic certificates tailored to institute needs.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Automation</span>
-                            <span class="tech-tag">PDF Generation</span>
-                            <span class="tech-tag">Dynamic</span>
-                            <span class="tech-tag">Customizable</span>
+                            <span class="tech-tag translate" data-key="automation">Automation</span>
+                            <span class="tech-tag translate" data-key="pdfGen">PDF Generation</span>
+                            <span class="tech-tag translate" data-key="dynamic">Dynamic</span>
+                            <span class="tech-tag translate" data-key="customizable">Customizable</span>
                         </div>
                         <div class="project-links">
                             <a href="#" class="project-link" style="color: white;"> 
-                                <i class="fas fa-lock"></i> Private Project
+                                <i class="fas fa-lock"></i> <span class="translate" data-key="privateProject">Private Project</span>
                             </a>
                         </div>
                     </div>
                 </div>
 
-<div class="project-card">
+                <div class="project-card">
                     <div class="project-image">
                         <img src="mm.png" alt="candle stationery">
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Candle Motivation</h3>
-                        <p class="project-description">Developed an e-commerce web platform for Candle Motivation, a stationery and motivational products store. Designed with a focus on clean aesthetics and intuitive navigation, the site allows users to browse products, view detailed descriptions, and complete purchases seamlessly. Implemented responsive design to ensure functionality across desktop and mobile devices. Integrated secure checkout and product showcase features to enhance the shopping experience. The project is fully live and optimized for user engagement.</p>
+                        <h3 class="project-title translate" data-key="candleTitle">Candle Motivation</h3>
+                        <p class="project-description translate" data-key="candleDesc">Developed an e-commerce web platform for Candle Motivation, a stationery and motivational products store. Designed with a focus on clean aesthetics and intuitive navigation, the site allows users to browse products, view detailed descriptions, and complete purchases seamlessly. Implemented responsive design to ensure functionality across desktop and mobile devices. Integrated secure checkout and product showcase features to enhance the shopping experience. The project is fully live and optimized for user engagement.</p>
                         <div class="project-tech">
-                            <span class="tech-tag">Responsive</span>
-                            <span class="tech-tag">Secure</span>
-                            <span class="tech-tag">E-commerce</span>
-                            <span class="tech-tag">User Friendly</span>
-                            <span class="tech-tag">Hidden Admin Panel</span>
+                            <span class="tech-tag translate" data-key="responsive">Responsive</span>
+                            <span class="tech-tag translate" data-key="secure">Secure</span>
+                            <span class="tech-tag translate" data-key="ecommerce">E-commerce</span>
+                            <span class="tech-tag translate" data-key="userFriendly">User Friendly</span>
+                            <span class="tech-tag translate" data-key="adminPanel">Hidden Admin Panel</span>
                             
                         </div>
                         <div class="project-links">
                             <a href="https://candle-motivation.com/" class="project-link" target="_blank" style="color: white;">
-                                <i class="fas fa-external-link-alt" ></i> Visit Website
+                                <i class="fas fa-external-link-alt" ></i> <span class="translate" data-key="visitWebsite">Visit Website</span>
                             </a>
                             <!-- <a href="#" class="project-link">
                                 <i class="fab fa-github"></i> Source Code
@@ -1075,15 +1115,15 @@
         </section>
 
         <section class="contact fade-in" id="contact">
-            <h2 class="section-title">Let's Build Something Amazing</h2>
-            <p>Ready to turn your ideas into reality? I'm always excited to work on new projects and collaborate with innovative teams.</p>
+            <h2 class="section-title translate" data-key="buildSomething">Let's Build Something Amazing</h2>
+            <p class="translate" data-key="contactDesc">Ready to turn your ideas into reality? I'm always excited to work on new projects and collaborate with innovative teams.</p>
             <div class="contact-grid">
                 <a href="mailto:dearysleman384@gmail.com" class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-envelope"></i>
                     </div>
                     <div class="contact-info">
-                        <h3>Email</h3>
+                        <h3 class="translate" data-key="email">Email</h3>
                         <p>dearysleman384@gmail.com</p>
                     </div>
                 </a>
@@ -1092,7 +1132,7 @@
                         <i class="fab fa-linkedin"></i>
                     </div>
                     <div class="contact-info">
-                        <h3>LinkedIn</h3>
+                        <h3 class="translate" data-key="linkedin">LinkedIn</h3>
                         <p>deary-sleman</p>
                     </div>
                 </a>
@@ -1101,7 +1141,7 @@
                         <i class="fab fa-whatsapp"></i>
                     </div>
                     <div class="contact-info">
-                        <h3>WhatsApp</h3>
+                        <h3 class="translate" data-key="whatsapp">WhatsApp</h3>
                         <p>+964 770 847 3777</p>
                     </div>
                 </a>
@@ -1110,20 +1150,238 @@
                         <i class="fas fa-briefcase"></i>
                     </div>
                     <div class="contact-info">
-                        <h3>Freelance</h3>
-                        <p>Available for projects</p>
+                        <h3 class="translate" data-key="freelance">Freelance</h3>
+                        <p class="translate" data-key="available">Available for projects</p>
                     </div>
                 </a>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2025 Deary Sleman. All rights reserved.</p>
+            <p>&copy; 2025 <span class="translate" data-key="name">Deary Sleman</span>. <span class="translate" data-key="rightsReserved">All rights reserved.</span></p>
             <!-- <p>Designed & Developed with ❤️</p> -->
         </footer>
     </div>
 
     <script>
+        // Language translation functionality
+        const translations = {
+            en: {
+                // Navigation
+                home: "Home",
+                about: "About",
+                skills: "Skills",
+                experience: "Experience",
+                projects: "Projects",
+                contact: "Contact",
+                
+                // Hero section
+                name: "Deary Sleman",
+                jobTitle: "Full Stack Web Developer",
+                heroDesc: "Skilled in front-end and back-end development, I create fast, secure, and user-friendly web experiences. My goal is to craft clean, efficient code and intuitive designs that bring projects to life.",
+                viewWork: "View My Work",
+                letsConnect: "Let's Connect",
+                
+                // About section
+                aboutMe: "About Me",
+                aboutDesc: "Motivated and detail-oriented professional with a strong work ethic and a passion for continuous learning. Known for being reliable, adaptable, and able to work effectively both independently and within a team. Brings excellent communication skills, problem-solving abilities, and a commitment to delivering high-quality results. Seeking an opportunity to contribute to a dynamic organization while growing professionally.",
+                hireMe: "Hire Me",
+                downloadCV: "Download CV",
+                
+                // Skills section
+                technicalExpertise: "Technical Expertise",
+                frontendDev: "Frontend Development",
+                frontendDesc: "Crafting responsive, modern, and user-friendly interfaces using the latest web technologies.",
+                backendDev: "Backend Development",
+                backendDesc: "Powering website with strong architecture, optimized performance, and seamless data management.",
+                database: "Database & Storage",
+                databaseDesc: "Organizing data into powerful systems that keep applications fast, secure, and future-ready.",
+                reportExpert: "Report & Presentation Expert",
+                reportDesc: "Skilled in writing academic, technical, and business reports as well as designing engaging presentations that effectively communicate ideas.",
+                
+                // Experience section
+                professionalExperience: "Professional Experience",
+                internship: "Internship",
+                internshipDesc: "• Website Development<br>• Network & Router Maintenance<br>• Student and Staff Technical Support<br>• IT Infrastructure Support<br>• Collaboration and Problem Solving",
+                fullStack: "Full Stack Web Developer",
+                freelance: "Freelance",
+                freelanceDesc: "Providing web development and digital solutions to clients on a project basis, delivering high-quality, efficient, and customized results. Skilled in managing end-to-end projects independently, ensuring timely delivery and client satisfaction.",
+                digitalContent: "Digital Content Specialist",
+                digitalContentDesc: "• Report & Research Writing<br>• Presentation Design<br>• Lecture Printing<br>• Content Management<br>• Client Consultation",
+                
+                // Projects section
+                featuredProjects: "Featured Projects",
+                nethertonTitle: "Netherton Shopping Store",
+                nethertonDesc: "Developed a full-featured platform tailored for Netherton Shopping Store, focusing on usability, performance, and secure management.",
+                eduPlatformTitle: "Educational Platform",
+                eduPlatformDesc: "Developed a web platform for collecting feedback and conducting online quizzes for students and teachers. Designed to function like Google Forms, it allows efficient data collection and real-time responses. Currently, the project is 70% complete and restricted for institute members only, ensuring privacy and exclusive access.",
+                certificateTitle: "Certificate Generator",
+                certificateDesc: "Web application that automatically generates certificates for both creators and attendees, providing dynamic certificates tailored to institute needs.",
+                candleTitle: "Candle Motivation",
+                candleDesc: "Developed an e-commerce web platform for Candle Motivation, a stationery and motivational products store. Designed with a focus on clean aesthetics and intuitive navigation, the site allows users to browse products, view detailed descriptions, and complete purchases seamlessly. Implemented responsive design to ensure functionality across desktop and mobile devices. Integrated secure checkout and product showcase features to enhance the shopping experience. The project is fully live and optimized for user engagement.",
+                
+                // Tech tags
+                responsive: "Responsive",
+                secure: "Secure",
+                adminPanel: "Hidden Admin Panel",
+                education: "Education",
+                forms: "Forms",
+                realTime: "Real-time",
+                automation: "Automation",
+                pdfGen: "PDF Generation",
+                dynamic: "Dynamic",
+                customizable: "Customizable",
+                ecommerce: "E-commerce",
+                userFriendly: "User Friendly",
+                
+                // Project links
+                visitWebsite: "Visit Website",
+                privateProject: "Private Project",
+                
+                // Contact section
+                buildSomething: "Let's Build Something Amazing",
+                contactDesc: "Ready to turn your ideas into reality? I'm always excited to work on new projects and collaborate with innovative teams.",
+                email: "Email",
+                linkedin: "LinkedIn",
+                whatsapp: "WhatsApp",
+                available: "Available for projects",
+                
+                // Footer
+                rightsReserved: "All rights reserved.",
+                
+                // Language button
+                kurdish: "کوردی"
+            },
+            ku: {
+                // Navigation
+                home: "سەرەکی",
+                about: "دەربارە",
+                skills: "لێهاتوویی",
+                experience: "ئەزموون",
+                projects: "پرۆژەکان",
+                contact: "پەیوەندی",
+                
+                // Hero section
+                name: "دیاری سلێمان",
+                jobTitle: "گەشەپێدەری وێبسایت",
+                heroDesc: "لە گەشەپێدانی ڕووکار و باکئێند لێهاتووم، ئەزموونی خێرا، پارێزراو و بەکارهێنانی ئاسان دروست دەکەم. ئامانجم دروستکردنی وێبسایتێکی  کارا و دیزاینێکی ژیرانەیە .",
+                viewWork: "بینینی  پڕۆژەکانم",
+                letsConnect: "پەیوەندیم پێوەبکە",
+                
+                // About section
+                aboutMe: "دەربارەی من",
+                aboutDesc: "پیشەیی پاڵنەر و وردەکاری ئاڕاستەکراو و خاوەن ئیتیکی کارکردنی بەهێز و خولیای فێربوونی بەردەوام. ناسراوە بەوەی کە متمانەپێکراو و گونجاوە و توانای کارکردنی کاریگەرە ، هەم بە شێوەیەکی سەربەخۆ و چ لەناو تیمێکدا. توانای پەیوەندیکردن و توانای چارەسەرکردنی کێشە و پابەندبوون بە گەیاندنی ئەنجامە کوالیتی بەرزەکان دەهێنێت. بەدوای دەرفەتێکدا دەگەڕێت بۆ بەشداریکردن لە ڕێکخراوێکی دینامیکی لەکاتێکدا گەشەسەندنی پیشەیی",
+                hireMe: " پەیوەندیم پێوەبکە ",
+                downloadCV: "CV دازاندنی ",
+                
+                // Skills section
+                technicalExpertise: "شارەزایی تەکنیکیەکان",
+                frontendDev: "گەشەپێدانی ڕووکار",
+                frontendDesc: "دیزاینکردنی ڕووکار بەپێی شێوازی کار، گرنگی دان بە مۆدێرن و ئاسان بەکارهێنان بە بەکارهێنانی نوێترین تەکنەلۆژیای وێب",
+                backendDev: "گەشەپێدانی باکئێند",
+                backendDesc: " بەهێزکردنی پارێزراوی ماڵپەڕەکان ، خێرایی لە بەکارهێناندا و گرنگی دان بە وردەکاریەکان و بەڕێوەبردنی داتا بەبێ کێشە ",
+                database: "داتابەیس و هەڵگرتن",
+                databaseDesc: " ڕێکخستنی داتاکان بۆ سیستەمی بەهێز کە بەرنامەکان بە خێرایی و پارێزراو و ئامادە بۆ داهاتوو دەهێڵنەوە ",
+                reportExpert: "شارەزای ڕاپۆرت و سێمینار",
+                reportDesc: "لە نوسینی ڕاپۆرتی ئەکادیمی، تەکنیکی و بازرگانی و دیزاینکردنی پڕیزینتەیشنە سەرنجڕاکێشەکاندا لێهاتووم کە بیرۆکەکان بە شێوەیەکی کاریگەر بیرۆکەکان دەگەیەنێت",
+                
+                // Experience section
+                professionalExperience: "ئەزموونی پیشەگەری",
+                internship: "ڕاهێنان",
+                internshipDesc: "• گەشەپێدانی ماڵپەڕ<br>• چاودێری تۆڕ و ئینتەرنێت<br>• پاڵپشتی تەکنیکی خوێندکار و ستاف<br>• پاڵپشتی ژێرخانی تەکنەلۆژیای زانیاری<br>• هاریکاری و چارەسەرکردنی کێشەکان",
+                fullStack: "گەشەپێدەری تەواوی وێب",
+                freelance: "Freelance",
+                freelanceDesc: "داڕشتنی گەشەپێدانی وێب و چارەسەری دیجیتاڵ بۆ کڕیارەکان لەسەر بنەمای پرۆژە، بەدەستهێنانی ئەنجامی بەرزی کوالیتی، چالاک لە پەرەپێدانی پرۆژەکان لە سەرەوە تا کۆتایی بەشێوەی سەربەخۆ لێهاتووم، گرنگیدان  بەکات بۆ تەواوکردنی پڕۆژەکە لە کاتی خۆیدا",
+                digitalContent: "شارەزای ناوەڕۆکی دیجیتاڵ",
+                digitalContentDesc: "• نوسینی ڕاپۆرت و توێژینەوە<br>• دیزاینی سێمینار<br>• چاپکردنی وانە<br>• بەڕێوەبردنی ناوەڕۆک<br>• ڕاوێژکاری کڕیار",
+                
+                // Projects section
+                featuredProjects: "پرۆژە دیارەکان",
+                nethertonTitle: "Netherton Shopping Store",
+                nethertonDesc: "پلاتفۆرمێکی تەواوی تایبەتکراوی دروستکراوە بۆ فرۆشگایەک ، کە تیشک دەخاتە سەر بەکارهێنانی ئاسان، کارایی و بەڕێوەبردنی پارێزراو",
+                eduPlatformTitle: "پلاتفۆرمی پەروەردەیی",
+                eduPlatformDesc: "پلاتفۆرمێکی وێبی دروستکراوە بۆ کۆکردنەوەی ڕەخنە و ئەنجامدانی تێستە ئۆنلاینەکان بۆ خوێندکاران و مامۆستایان. دیزاینکراوە بۆ ئەوەی وەک فۆرمی گووگڵ کاربکات، ڕێگە بە کۆکردنەوەی دراوە بە شێوەیەکی کارا و وەڵامی کاتی ڕاستەقینە دەدات. لە ئێستادا، پرۆژەکە ٧٠٪ تەواوە و تەنها بۆ ئەندامانی پەیمانگاکە سنووردارە، دڵنیایی تایبەتمەندی و چوونەناوی تایبەتی دەدات",
+                certificateTitle: "ئامادەکردنی بڕوانامە",
+                certificateDesc: " وێبسایتێکی خۆکارانە بڕوانامە دروست دەکات بۆ هەردووکی ڕێکخەر و بەشداربوو، بڕوانامەی جوڵاو دابین دەکات کە تایبەتکراوە بە ئەندامانی پەیمانگاکە",
+                candleTitle: "Candle Motivation",
+                candleDesc: "پلاتفۆرمێکی وێبی بازرگانی ئەلیکترۆنی دروستکراوە بۆ Candle Motivation، کە فرۆشگایەکە کە کەلوپەلی نووسین و بەرهەمە هاندەرەکان فرۆش دەکات. دیزاینکراوە بە تیشکخستنەوە لەسەر جوانکاری پاک و ڕێنوێنی ژیرانە، ماڵپەڕەکە ڕێگە بە بەکارهێنەران دەدات کە بەرهەمەکان بپشکنن، وەسفی ورد ببینن و کڕین تەواو بکەن بە بێ کێشە. دیزاینی  جێبەجێکراوە بۆ دڵنیابوون لە کارایی لەسەر کۆمپیوتەر و ئامێری مۆبایل. تایبەتمەندییەکانی کۆتایی پارێزراو و پیشاندانی بەرهەم تێکەڵکراوە بۆ باشترکردنی ئەزموونی کڕین. پرۆژەکە بە تەواوی کاردەکات و ئاسانکراوە  بۆ بەشداریکردنی بەکارهێنەر",
+                
+                // Tech tags
+                responsive: "دیزاینی گونجاو",
+                secure: "پارێزراو",
+                adminPanel: " ئەدمین پانێڵی شاراوە",
+                education: "پەروەردەیی",
+                forms: "فۆرم",
+                realTime: "کاتی ڕاستەقینە",
+                automation: "خۆکاری",
+                pdfGen: "PDFبەرهەمهێنی ",
+                dynamic: "جوڵاو",
+                customizable: "گونجێنراو",
+                ecommerce: "بازرگانی ئەلیکترۆنی",
+                userFriendly: "بەکارهێنانی ئاسان",
+                
+                // Project links
+                visitWebsite: "سەردانی ماڵپەڕ",
+                privateProject: "پرۆژەی تایبەت",
+                
+                // Contact section
+                buildSomething: "با شتێکی سەرسوڕهێنەر دروست بکەین",
+                contactDesc: "ئامادەیت بیرۆکەکانت بۆ ڕاستی بگۆڕیت؟ هەمیشە بەپەرۆشم بۆ کارکردن لەسەر پرۆژە نوێیەکان و هاریکاری لەگەڵ تیمە نوێکارەکان.",
+                email: "Email",
+                linkedin: "Linkedin",
+                whatsapp: "Whatsapp",
+                available: "بەردەستە بۆ پرۆژەکان",
+                
+                // Footer
+                rightsReserved: "هەموو مافەکان پارێزراون",
+                
+                // Language button
+                kurdish: "English"
+            }
+        };
+
+        let currentLanguage = 'en';
+
+        // Function to toggle language
+        function toggleLanguage() {
+            currentLanguage = currentLanguage === 'en' ? 'ku' : 'en';
+            updateLanguage();
+        }
+
+        // Function to update all text content based on current language
+        function updateLanguage() {
+            // Update all elements with translate class
+            document.querySelectorAll('.translate').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLanguage][key]) {
+                    element.textContent = translations[currentLanguage][key];
+                    
+                    // Handle HTML content for specific elements
+                    if (key === 'internshipDesc' || key === 'digitalContentDesc') {
+                        element.innerHTML = translations[currentLanguage][key];
+                    }
+                }
+            });
+            
+            // Update language button text
+            document.getElementById('languageText').textContent = 
+                currentLanguage === 'en' ? translations[currentLanguage].kurdish : translations[currentLanguage].kurdish;
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = currentLanguage;
+            
+            // Update text direction for Kurdish (RTL)
+            if (currentLanguage === 'ku') {
+                document.body.style.direction = 'rtl';
+                document.querySelector('.container').style.direction = 'ltr'; // Keep content LTR for design consistency
+            } else {
+                document.body.style.direction = 'ltr';
+            }
+        }
+
+        // Add event listener to language toggle button
+        document.getElementById('languageToggle').addEventListener('click', toggleLanguage);
+
         // Enhanced Developer Smoke Effect with Performance Optimization
         const smokeContainer = document.getElementById('smokeContainer');
         let mouseX = window.innerWidth / 2;
@@ -1446,6 +1704,9 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Add active class to home link initially
             document.querySelector('nav a[href="#home"]').classList.add('active');
+            
+            // Initialize language
+            updateLanguage();
         });
     </script>
 </body>
